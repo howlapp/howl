@@ -2,7 +2,8 @@ name: Build and push Docker images
 
 on:
   push:
-    branches: [main]
+    branches:
+      - release/v*
 
 permissions:
   packages: write
