@@ -1,0 +1,18 @@
+[package]
+name = "gateway"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+juniper = "0.15"
+juniper_warp = "0.7"
+warp = "0.3"
+
+anyhow = { workspace = true } 
+tokio = { workspace = true }
+tonic = { workspace = true }
+serde = { workspace = true }
+
+macrostack-protocol = { path = "../../common/protocol" }
+macrostack-tracing = { path = "../../crates/tracing" }

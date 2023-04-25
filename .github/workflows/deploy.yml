@@ -1,0 +1,17 @@
+name: Deploy to Kubernetes
+
+on:
+  workflow_run:
+    workflows: ["Build and push Docker images"]
+    branches:
+      - release/v*
+    types:
+      - completed
+
+jobs:
+  deploy: 
+    name: Deploy to Kubernetes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v2

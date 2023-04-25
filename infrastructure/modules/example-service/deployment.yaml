@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: macrostack
+  name: example-service
+  labels:
+    app: example-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-service
+  template:
+    metadata:
+      labels:
+        app: example-service
+      # Add Consul annotations
+      annotations:
+        consul.hashicorp.com/connect-inject: "true"
+        consul.hashicorp.com/connect-service-upstreams: "postgres:5432"
+        consul.hashicorp.com/service-meta-version: "v1"
+        consul.hashicorp.com/service-tags: "service"
+    spec:
+      serviceAccountName: example-service
+      containers:
+        - name: example-service
+          readinessProbe:
+            tcpSocket:
+              port: 50051
+          image: ghcr.io/kaylendog/macrostack-example-service:${commit}
+          ports:
+            - containerPort: 50051
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+      imagePullSecrets:
+        - name: ghcr-token

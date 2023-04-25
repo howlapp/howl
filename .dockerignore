@@ -1,0 +1,8 @@
+# ignore everything except the files we need
+*
+
+# rust files
+!**/*.toml
+!**/*.rs
+!Cargo.lock
+!**/*.proto

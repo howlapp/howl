@@ -1,0 +1,23 @@
+{
+	"rust-analyzer.cargo.loadOutDirsFromCheck": true,
+
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+	"[terraform]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true
+	},
+
+	"[helm]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true
+	},
+	"yaml.schemas": {
+		"https://json.schemastore.org/github-workflow.json": "file:///home/skye/Projects/personal/macrostack/.github/workflows/deploy.yml"
+	}
+}

@@ -1,0 +1,8 @@
+postgres:
+  auth:
+    password: ${postgres_password}
+    user: macrostack
+    database: macrostack
+
+image:
+  tag: ${postgres_version}

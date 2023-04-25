@@ -1,0 +1,6 @@
+version: v1
+plugins:
+  - plugin: buf.build/bufbuild/es
+    out: gen/es
+  - plugin: buf.build/bufbuild/connect-es
+    out: gen/es

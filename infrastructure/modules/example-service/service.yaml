@@ -1,0 +1,16 @@
+# Ensure HTTP protocol to enable L7 traffic management
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: macrostack
+  name: example-service
+  labels:
+    app: example-service
+spec:
+  selector:
+    app: example-service
+  ports:
+    - name: http
+      protocol: TCP
+      port: 50051
+      targetPort: 50051
