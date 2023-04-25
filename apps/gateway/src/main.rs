@@ -1,47 +1,52 @@
-use std::{env, net::Ipv4Addr};
+use std::{convert::Infallible, env};
 
 use anyhow::Result;
-use howlapp_protocol::hello::{greeter_client::GreeterClient, HelloReply, HelloRequest};
 use serde::Serialize;
-use tonic::Response;
-use warp::Filter;
+
+use warp::{http::StatusCode, Filter, Rejection, Reply};
 
 #[derive(Serialize)]
-struct Message {
-    message: String,
+struct VersionInformation {
+    commit: String,
+    version: String,
+}
+
+enum ErrorCode {
+    NotFound,
+}
+
+#[derive(Serialize)]
+struct ErrorMessage {
+    code: u16,
+    msg: String,
+}
+
+async fn handle_rejection(r: Rejection) -> Result<impl Reply, Infallible> {
+    if r.is_not_found() {
+        return Ok(warp::reply::with_status(
+            warp::reply::json(&ErrorMessage {
+                code: ErrorCode::NotFound as u16,
+                msg: "Error: Not Found".to_string(),
+            }),
+            StatusCode::NOT_FOUND,
+        ));
+    }
+    todo!()
 }
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    howlapp_tracing::init("example-service")?;
-
-    // greeter service config
-    let greeter_host: Ipv4Addr = env::var("EXAMPLE_SERVICE_CONNECT_SERVICE_HOST")?.parse()?;
-    let greeter_port: u16 = env::var("EXAMPLE_SERVICE_CONNECT_SERVICE_PORT")?.parse()?;
-    // connect to greeter service
-    let greeter = howlapp_protocol::hello::greeter_client::GreeterClient::connect(format!(
-        "http://{}:{}",
-        greeter_host, greeter_port
-    ))
-    .await?;
-
-    let greeter = warp::any().map(move || greeter.clone());
-
-    let routes = warp::path!("hello" / String)
-        .and(greeter)
-        .and_then(|name, mut greeter: GreeterClient<_>| async move {
-            greeter
-                .say_hello(HelloRequest { name })
-                .await
-                .map_err(|_| warp::reject())
+    howlapp_tracing::init("gateway")?;
+    // return api version
+    let version = warp::path::end().and(warp::get()).map(|| {
+        warp::reply::json(&VersionInformation {
+            commit: "".to_string(),
+            version: env!("CARGO_PKG_VERSION").to_string(),
         })
-        .map(|reply: Response<HelloReply>| {
-            warp::reply::json(&Message {
-                message: reply.into_inner().message,
-            })
-        });
-
+    });
+    // create router
+    let routes = version.recover(handle_rejection).with(warp::log("gateway"));
+    // serve
     warp::serve(routes).run(([127, 0, 0, 1], 8080)).await;
-
     Ok(())
 }
