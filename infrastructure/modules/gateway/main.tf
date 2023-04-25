@@ -14,7 +14,7 @@ resource "kubernetes_manifest" "gateway-service-defaults" {
 
 resource "kubernetes_service_account" "example-service-account" {
   metadata {
-    namespace = "macrostack"
+    namespace = "howlapp"
     name      = "gateway"
   }
   automount_service_account_token = true

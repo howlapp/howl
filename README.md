@@ -1,6 +1,6 @@
-# macrostack
+# howl
 
-An example of a full-stack, microservice-based application written in Rust and TypeScript.
+Howl is an open source, sercure, and scalable guilded chat application.
 
 ## Dependencies
 
@@ -10,7 +10,7 @@ An example of a full-stack, microservice-based application written in Rust and T
 
 ### Global PNPM Dependencies
 
-Macrostack also relies on some CLI tooling provided by the NPM repository. Since NPM scripts are run from the project directory rather than CWD, these must be installed globally to function correctly.
+Howl also relies on some CLI tooling provided by the NPM repository. Since NPM scripts are run from the project directory rather than CWD, these must be installed globally to function correctly.
 
 - [buf](https://docs.buf.build/installation)
 
@@ -33,10 +33,10 @@ Local development is aided using a Docker Compose environment that provides a Po
 docker compose up -d
 ```
 
-Macrostack makes use of Turborepo to aid in caching of task outputs. You can find the documentation [here](https://turbo.build/repo/docs/reference/command-line-reference).
+Howl makes use of Turborepo to aid in caching of task outputs. You can find the documentation [here](https://turbo.build/repo/docs/reference/command-line-reference).
 
 ## License
 
 All code in this repository is licensed under a dual MIT/Apache-2.0 license, at your option. There are some exceptions to this, which are noted in the relevant projects' READMEs. See [LICENSE-MIT](LICENSE-MIT) and [LICENSE-APACHE](LICENSE-APACHE) for more details.
 
-[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B34788%2Fgithub.com%2Fkaylendog%2Fmacrostack.svg?type=large)](https://app.fossa.com/projects/custom%2B34788%2Fgithub.com%2Fkaylendog%2Fmacrostack?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B34788%2Fgithub.com%2Fkaylendog%2Fhowlapp.svg?type=large)](https://app.fossa.com/projects/custom%2B34788%2Fgithub.com%2Fkaylendog%2Fhowlapp?ref=badge_large)

@@ -3,7 +3,7 @@ resource "helm_release" "postgres" {
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "postgresql"
   version    = "12.3.1"
-  namespace  = "macrostack"
+  namespace  = "howlapp"
   values = [
     templatefile("${path.module}/values.yaml", {
       postgres_version  = var.postgres_version

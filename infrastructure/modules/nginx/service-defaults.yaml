@@ -2,6 +2,6 @@ apiVersion: consul.hashicorp.com/v1alpha1
 kind: ServiceDefaults
 metadata:
   name: nginx
-  namespace: macrostack
+  namespace: howlapp
 spec:
   protocol: "http"

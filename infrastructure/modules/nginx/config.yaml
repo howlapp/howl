@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-config
-  namespace: macrostack
+  namespace: howlapp
 data:
   nginx.conf: |
     events {}

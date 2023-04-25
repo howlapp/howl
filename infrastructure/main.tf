@@ -49,7 +49,7 @@ module "gateway" {
 resource "kubernetes_secret" "ghcr-token" {
   type = "kubernetes.io/dockerconfigjson"
   metadata {
-    namespace = "macrostack"
+    namespace = "howlapp"
     name      = "ghcr-token"
   }
   data = {

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: macrostack
+  namespace: howlapp
   name: example-service
   labels:
     app: example-service
@@ -28,7 +28,7 @@ spec:
           readinessProbe:
             tcpSocket:
               port: 50051
-          image: ghcr.io/kaylendog/macrostack-example-service:${commit}
+          image: ghcr.io/howlapp/example-service:${commit}
           ports:
             - containerPort: 50051
           resources:

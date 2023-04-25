@@ -13,7 +13,7 @@ resource "kubernetes_manifest" "example-service-deployment" {
 
 resource "kubernetes_service_account" "example-service-account" {
   metadata {
-    namespace = "macrostack"
+    namespace = "howlapp"
     name      = "example-service"
   }
   automount_service_account_token = true

@@ -2,12 +2,12 @@ apiVersion: gateway.networking.k8s.io/v1alpha2
 kind: ReferenceGrant
 metadata:
   name: example-reference-grant
-  namespace: macrostack
+  namespace: howlapp
 spec:
   from:
     - group: gateway.networking.k8s.io
       kind: HTTPRoute
-      namespace: macrostack # Must match the namespace that api-gw/routes.yaml is deployed into
+      namespace: howlapp # Must match the namespace that api-gw/routes.yaml is deployed into
   to:
     - group: ""
       kind: Service

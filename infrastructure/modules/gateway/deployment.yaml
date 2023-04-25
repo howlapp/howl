@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: macrostack
+  namespace: howlapp
   name: gateway
   labels:
     app: gateway
@@ -28,7 +28,7 @@ spec:
               port: 8080
           ports:
             - containerPort: 8080
-          image: ghcr.io/kaylendog/macrostack-gateway:${commit}
+          image: ghcr.io/howlapp/gateway:${commit}
           resources:
             limits:
               memory: "128Mi"

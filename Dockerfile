@@ -6,8 +6,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN cargo build -r --workspace --bins --exclude macrostack-prisma-cli
+RUN cargo build -r --workspace --bins --exclude howl-prisma-cli
 
-LABEL org.opencontainers.image.source=https://github.com/kaylendog/macrostack
-LABEL org.opencontainers.image.description="Macrostack services image"
+LABEL org.opencontainers.image.source=https://github.com/howlapp/howl
+LABEL org.opencontainers.image.description="Howl services image"
 LABEL org.opencontainers.image.licenses=MIT/Apache-2.0

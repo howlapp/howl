@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package macrostack.v1.hello;
+package howlapp.v1.hello;
 
 message HelloRequest {
   string name = 1;

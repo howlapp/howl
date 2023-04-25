@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: macrostack
+  namespace: howlapp
   name: example-service
   labels:
     app: example-service

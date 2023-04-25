@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx
-  namespace: macrostack
+  namespace: howlapp
   labels:
     app: nginx
 spec:

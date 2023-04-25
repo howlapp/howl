@@ -1,5 +1,5 @@
 use anyhow::Result;
-use macrostack_protocol::hello::{
+use howlapp_protocol::hello::{
     greeter_server::{Greeter, GreeterServer},
     HelloReply, HelloRequest,
 };
@@ -7,10 +7,10 @@ use macrostack_protocol::hello::{
 use tonic::{transport::Server, Request, Response, Status};
 
 #[derive(Default)]
-struct MacrostackGreeter;
+struct HowlappGreeter;
 
 #[tonic::async_trait]
-impl Greeter for MacrostackGreeter {
+impl Greeter for HowlappGreeter {
     async fn say_hello(
         &self,
         request: Request<HelloRequest>,
@@ -24,9 +24,9 @@ impl Greeter for MacrostackGreeter {
 #[tokio::main]
 async fn main() -> Result<()> {
     // setup logging
-    macrostack_tracing::init("example-service")?;
+    howlapp_tracing::init("example-service")?;
     // setup grpc
-    let greeter = MacrostackGreeter::default();
+    let greeter = HowlappGreeter::default();
     Server::builder()
         .add_service(GreeterServer::new(greeter))
         .serve(([127, 0, 0, 1], 50051).into())

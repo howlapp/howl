@@ -1,5 +1,5 @@
 [package]
-name = "macrostack-prisma-cli"
+name = "howlapp-prisma-cli"
 version = "0.1.0"
 edition = "2021"
 

@@ -20,7 +20,7 @@ resource "kubernetes_manifest" "nginx-routes" {
 
 resource "kubernetes_service_account" "nginx-service-account" {
   metadata {
-    namespace = "macrostack"
+    namespace = "howlapp"
     name      = "nginx"
   }
   automount_service_account_token = true

@@ -9,6 +9,6 @@ tokio = { workspace = true }
 tonic = { workspace = true }
 tracing = { workspace = true }
 
-macrostack-consul = { path = "../../crates/consul" }
-macrostack-protocol = { path = "../../common/protocol", features = ["hello"] }
-macrostack-tracing = { path = "../../crates/tracing" }
+howlapp-consul = { path = "../../crates/consul" }
+howlapp-protocol = { path = "../../common/protocol", features = ["hello"] }
+howlapp-tracing = { path = "../../crates/tracing" }

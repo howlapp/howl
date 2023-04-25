@@ -2,7 +2,7 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 kind: Gateway
 metadata:
   name: consul-gateway
-  namespace: macrostack
+  namespace: howlapp
 spec:
   gatewayClassName: consul-api-gateway
   listeners:

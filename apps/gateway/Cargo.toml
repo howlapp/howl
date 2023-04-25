@@ -14,5 +14,5 @@ tokio = { workspace = true }
 tonic = { workspace = true }
 serde = { workspace = true }
 
-macrostack-protocol = { path = "../../common/protocol" }
-macrostack-tracing = { path = "../../crates/tracing" }
+howlapp-protocol = { path = "../../common/protocol" }
+howlapp-tracing = { path = "../../crates/tracing" }

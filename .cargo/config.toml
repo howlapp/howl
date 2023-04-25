@@ -1,2 +1,2 @@
 [alias]
-prisma = "run -p macrostack-prisma-cli --"
+prisma = "run -p howl-prisma-cli --"

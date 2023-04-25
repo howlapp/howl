@@ -1,5 +1,5 @@
 {
-	"name": "macrostack",
+	"name": "howl",
 	"private": true,
 	"scripts": {
 		"prepare": "husky install"

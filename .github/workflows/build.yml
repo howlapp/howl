@@ -30,8 +30,8 @@ jobs:
           context: .
           file: ./Dockerfile
           tags: |
-            ghcr.io/${{ github.repository_owner }}/macrostack-services:latest
-            ghcr.io/${{ github.repository_owner }}/macrostack-services:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/services:latest
+            ghcr.io/${{ github.repository_owner }}/services:${{ github.sha }}
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -63,5 +63,5 @@ jobs:
           push: true
           file: ./infrastructure/modules/${{ matrix.service }}/Dockerfile
           tags: |
-            ghcr.io/${{ github.repository_owner }}/macrostack-${{ matrix.service }}:latest
-            ghcr.io/${{ github.repository_owner }}/macrostack-${{ matrix.service }}:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/${{ matrix.service }}:latest
+            ghcr.io/${{ github.repository_owner }}/${{ matrix.service }}:${{ github.sha }}

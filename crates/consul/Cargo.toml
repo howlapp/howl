@@ -1,5 +1,5 @@
 [package]
-name = "macrostack-consul"
+name = "howlapp-consul"
 version = "0.1.0"
 edition = "2021"
 
