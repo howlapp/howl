@@ -1,0 +1,64 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider    = "cargo prisma"
+  output      = "../src/generated.rs"
+  module_path = "crate::generated"
+}
+
+model User {
+  id               String        @id @default(uuid())
+  profile          UserProfile[]
+  guildMemberships GuildMember[]
+  Message          Message[]
+}
+
+model UserProfile {
+  id         String @id @default(uuid())
+  // user
+  user       User   @relation(fields: [userId], references: [id])
+  userId     String
+  // content
+  bio        String
+  avatarHash String
+}
+
+model Guild {
+  id      String        @id @default(uuid())
+  members GuildMember[]
+  Channel Channel[]
+}
+
+model GuildMember {
+  id      String @id @default(uuid())
+  // guild
+  guild   Guild  @relation(fields: [guildId], references: [id])
+  guildId String
+  // user
+  user    User   @relation(fields: [userId], references: [id])
+  userId  String
+}
+
+model Channel {
+  id       String    @id @default(uuid())
+  // guild
+  guild    Guild     @relation(fields: [guildId], references: [id])
+  guildId  String
+  // messages
+  messages Message[]
+}
+
+model Message {
+  id        String  @id @default(uuid())
+  // channel
+  channel   Channel @relation(fields: [channelId], references: [id])
+  channelId String
+  // author
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  String
+  // content
+  content   String
+}
