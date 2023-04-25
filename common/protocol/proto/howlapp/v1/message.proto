@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package howlapp.v1;
+
+message Message {
+	string id = 1;
+	string author_id = 2;
+	string channel_id = 3;
+	string content = 4;
+}
+
+message CreateMessageRequest {
+	string author_id = 1;
+	string channel_id = 2;
+	string content = 3;
+}
+
+message CreateMessageResponse {
+	Message message = 1;
+}
+
+service MessageService {
+	// Create a message in the target channel.
+	rpc CreateMessage(CreateMessageRequest) returns (CreateMessageResponse) {}
+}

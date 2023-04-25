@@ -1,4 +1,5 @@
-#[cfg(feature = "hello")]
-pub mod hello {
-    tonic::include_proto!("howlapp.v1.hello");
-}
+//! # howlapp-proto
+//!
+//! Exports the generated protobuf definitions.
+
+tonic::include_proto!("howlapp.v1");
