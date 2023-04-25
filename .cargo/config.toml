@@ -1,2 +1,2 @@
 [alias]
-prisma = "run -p howl-prisma-cli --"
+prisma = "run -p howlapp-prisma-cli --"

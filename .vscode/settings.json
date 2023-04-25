@@ -1,6 +1,10 @@
 {
 	"rust-analyzer.cargo.loadOutDirsFromCheck": true,
 
+	"protoc": {
+		"options": ["--proto_path=${workspaceroot}/common/protocol/proto"]
+	},
+
 	"editor.tabSize": 4,
 	"editor.insertSpaces": false,
 
