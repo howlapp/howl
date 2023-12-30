@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: howlapp
-  name: example-service
-  labels:
-    app: example-service
+    namespace: howlapp
+    name: example-service
+    labels:
+        app: example-service
 spec:
-  selector:
-    app: example-service
-  ports:
-    - name: http
-      protocol: TCP
-      port: 50051
-      targetPort: 50051
+    selector:
+        app: example-service
+    ports:
+        - name: http
+          protocol: TCP
+          port: 50051
+          targetPort: 50051

@@ -1,8 +1,8 @@
 postgres:
-  auth:
-    password: ${postgres_password}
-    user: howlapp
-    database: howlapp
+    auth:
+        password: ${postgres_password}
+        user: howlapp
+        database: howlapp
 
 image:
-  tag: ${postgres_version}
+    tag: ${postgres_version}

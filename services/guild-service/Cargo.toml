@@ -6,9 +6,8 @@ edition = "2021"
 [dependencies]
 anyhow = { workspace = true }
 tokio = { workspace = true }
-tonic = { workspace = true }
 tracing = { workspace = true }
 
 howlapp-consul = { path = "../../crates/consul" }
-howlapp-protocol = { path = "../../common/protocol" }
+howlapp-protocol = { path = "../../crates/protocol" }
 howlapp-tracing = { path = "../../crates/tracing" }

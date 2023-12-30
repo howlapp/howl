@@ -1,0 +1,7 @@
+{
+	"name": "@howlapp/typescript-config",
+	"version": "0.0.0",
+	"publishConfig": {
+		"access": "public"
+	}
+}

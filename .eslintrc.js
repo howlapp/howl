@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+	extends: "infernal",
 	parserOptions: {
 		project: "./tsconfig.json",
 	},

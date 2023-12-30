@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: howlapp
-  name: gateway
-  labels:
-    app: gateway
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: gateway
-  template:
-    metadata:
-      labels:
+    namespace: howlapp
+    name: gateway
+    labels:
         app: gateway
-      annotations:
-        consul.hashicorp.com/connect-inject: "true"
-        consul.hashicorp.com/connect-service-upstreams: "example-service:50051"
-        consul.hashicorp.com/service-meta-version: "v1"
-        consul.hashicorp.com/service-tags: "service"
-    spec:
-      serviceAccountName: gateway
-      containers:
-        - name: gateway
-          readinessProbe:
-            tcpSocket:
-              port: 8080
-          ports:
-            - containerPort: 8080
-          image: ghcr.io/howlapp/gateway:${commit}
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
-      imagePullSecrets:
-        - name: ghcr-token
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: gateway
+    template:
+        metadata:
+            labels:
+                app: gateway
+            annotations:
+                consul.hashicorp.com/connect-inject: "true"
+                consul.hashicorp.com/connect-service-upstreams: "example-service:50051"
+                consul.hashicorp.com/service-meta-version: "v1"
+                consul.hashicorp.com/service-tags: "service"
+        spec:
+            serviceAccountName: gateway
+            containers:
+                - name: gateway
+                  readinessProbe:
+                      tcpSocket:
+                          port: 8080
+                  ports:
+                      - containerPort: 8080
+                  image: ghcr.io/howlapp/gateway:${commit}
+                  resources:
+                      limits:
+                          memory: "128Mi"
+                          cpu: "500m"
+            imagePullSecrets:
+                - name: ghcr-token

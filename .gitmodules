@@ -1,0 +1,3 @@
+[submodule "packages/eslint-config-infernal"]
+	path = packages/eslint-config-infernal
+	url = https://github.com/kaylendog/eslint-config-infernal

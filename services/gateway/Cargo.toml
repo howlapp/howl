@@ -11,8 +11,7 @@ warp = "0.3"
 
 anyhow = { workspace = true } 
 tokio = { workspace = true }
-tonic = { workspace = true }
 serde = { workspace = true }
 
-howlapp-protocol = { path = "../../common/protocol" }
+howlapp-protocol = { path = "../../crates/protocol" }
 howlapp-tracing = { path = "../../crates/tracing" }
