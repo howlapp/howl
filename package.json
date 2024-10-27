@@ -7,14 +7,12 @@
 	"packageManager": "pnpm@8.13.0",
 	"engines": {
 		"node": "20",
-		"pnpm": "8"
+		"pnpm": "9"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^18.4.3",
-		"@commitlint/config-conventional": "^18.4.3",
-		"@typescript-eslint/eslint-plugin": "^6.16.0",
-		"@typescript-eslint/parser": "^6.16.0",
-		"eslint": "8.56.0",
+		"@commitlint/cli": "^19",
+		"@commitlint/config-conventional": "^19",
+		"eslint": "9",
 		"eslint-config-prettier": "^9.1.0",
 		"husky": "^9",
 		"lint-staged": "^15.2.0",
