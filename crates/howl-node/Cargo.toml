@@ -1,0 +1,46 @@
+[package]
+name = "howl-node"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+async-trait = "0.1"
+bon = "2.3"
+ed25519-dalek = "2.1"
+futures = "0.3"
+futures-timer = "3"
+openmls = "0.6"
+openmls_basic_credential = "0.3"
+openmls_traits = "0.3"
+rand = "0.8"
+sha2 = "0.10"
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = "1"
+
+# override
+arc-swap = "1.7.1"
+
+[dependencies.libp2p]
+version = "0.54.1"
+features = [
+    "dcutr",
+    "gossipsub",
+    "identify",
+    "macros",
+    "noise",
+    "ping",
+    "quic",
+    "relay",
+    "tokio",
+    "yamux",
+]
+
+[dependencies.surrealdb]
+version = "2"
+features = ["kv-mem"]
+
+[dev-dependencies.tokio]
+version = "1"
+features = ["macros", "rt"]

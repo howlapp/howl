@@ -1,9 +1,0 @@
-[package]
-name = "howlapp-protocol"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-tarpc = { version = "0.34", features = ["tokio1"] }
-
-anyhow = { workspace = true }
